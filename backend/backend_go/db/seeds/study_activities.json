@@ -1,0 +1,22 @@
+{
+    "activities": [
+        {
+            "id": 1,
+            "name": "Flashcards",
+            "description": "Practice vocabulary with flashcards",
+            "thumbnail_url": "https://example.com/flashcards.jpg"
+        },
+        {
+            "id": 2,
+            "name": "Multiple Choice Quiz",
+            "description": "Test your knowledge with multiple choice questions",
+            "thumbnail_url": "https://example.com/quiz.jpg"
+        },
+        {
+            "id": 3,
+            "name": "Writing Practice",
+            "description": "Practice writing Japanese characters",
+            "thumbnail_url": "https://example.com/writing.jpg"
+        }
+    ]
+} 

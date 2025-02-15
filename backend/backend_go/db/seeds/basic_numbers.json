@@ -1,0 +1,37 @@
+{
+    "group": {
+        "name": "Basic Numbers"
+    },
+    "words": [
+        {
+            "japanese": "一",
+            "romaji": "ichi",
+            "english": "one",
+            "parts": "{\"type\":\"number\",\"value\":1,\"usage\":\"counting\"}"
+        },
+        {
+            "japanese": "二",
+            "romaji": "ni",
+            "english": "two",
+            "parts": "{\"type\":\"number\",\"value\":2,\"usage\":\"counting\"}"
+        },
+        {
+            "japanese": "三",
+            "romaji": "san",
+            "english": "three",
+            "parts": "{\"type\":\"number\",\"value\":3,\"usage\":\"counting\"}"
+        },
+        {
+            "japanese": "四",
+            "romaji": "yon",
+            "english": "four",
+            "parts": "{\"type\":\"number\",\"value\":4,\"usage\":\"counting\"}"
+        },
+        {
+            "japanese": "五",
+            "romaji": "go",
+            "english": "five",
+            "parts": "{\"type\":\"number\",\"value\":5,\"usage\":\"counting\"}"
+        }
+    ]
+} 

@@ -1,0 +1,37 @@
+{
+    "group": {
+        "name": "Basic Greetings"
+    },
+    "words": [
+        {
+            "japanese": "こんにちは",
+            "romaji": "konnichiwa",
+            "english": "hello",
+            "parts": "{\"type\":\"greeting\",\"formality\":\"neutral\",\"time_of_day\":\"daytime\"}"
+        },
+        {
+            "japanese": "おはようございます",
+            "romaji": "ohayou gozaimasu",
+            "english": "good morning",
+            "parts": "{\"type\":\"greeting\",\"formality\":\"polite\",\"time_of_day\":\"morning\"}"
+        },
+        {
+            "japanese": "こんばんは",
+            "romaji": "konbanwa",
+            "english": "good evening",
+            "parts": "{\"type\":\"greeting\",\"formality\":\"neutral\",\"time_of_day\":\"evening\"}"
+        },
+        {
+            "japanese": "さようなら",
+            "romaji": "sayounara",
+            "english": "goodbye",
+            "parts": "{\"type\":\"farewell\",\"formality\":\"neutral\",\"usage\":\"long-term\"}"
+        },
+        {
+            "japanese": "ありがとうございます",
+            "romaji": "arigatou gozaimasu",
+            "english": "thank you",
+            "parts": "{\"type\":\"gratitude\",\"formality\":\"polite\"}"
+        }
+    ]
+} 
