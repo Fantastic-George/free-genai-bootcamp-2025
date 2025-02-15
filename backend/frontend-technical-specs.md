@@ -1,69 +1,64 @@
-# Frontend technical specs
+# Frontend Technical Spec
 
 ## Pages
 
-### Dashboard /dashboard
+### Dashboard `/dashboard`
 
 #### Purpose
-The purpose of this page is to provide a summary of learning and activity as the default page when a user vists the web-app.
+The purpose of this page is to provide a summary of learning
+and act as the default page when a user visit the web-app
 
 #### Components
-This page contains the following components:
-
 - Last Study Session
     shows last activity used
-    shows when last activity was
-    shows how many words were correct vs wrong from last activity
-    has a link to the word group
+    shows when last activitiy used
+    summarizes wrong vs correct from last activity
+    has a link to the group
 - Study Progress
-    - total words study eg. 3/432
-        - across all study sessions show the total words studied out of all possible words in our database
-    - display a mastery progress 
+    - total words study eg. 3/124
+        - across all study session show the total words studied out of all possible words in our database
+    - display a mastery progress eg. 0%
 - Quick Stats
     - success rate eg. 80%
-    - total study sessions eg. 5
+    - total study sessions  eg. 4
     - total active groups eg. 3
-    - study streak eg. 3 days
-    - average study duration eg. 10 min
-    - average success rate eg. 80%
-- Start Studying button
-    - goes to study activittes page
+    - study streak eg. 4 days
+- Start Studying Button
+    - goes to study activities page
 
-We'll need the following API endpoints to pawer this page:
+#### Needed API Endpoints
 
+- GET /api/dashboard/last_study_session
+- GET /api/dashboard/study_progress
+- GET /api/dashboard/quick_stats
 
-#### Needed API endpoints
-- GET /dashboard/last_study_session
-- GET /dashboard/study_progress
-- GET /dashboard/quick_stats
-- POST /dashboard/start_studying
-
-
-### Study Activites Page
+### Study Activities Index `/study_activities`
 
 #### Purpose
-The purpose of this page is to show a collection of study activities with a thumbnail and a name that the user can launch
+The purpose of this page is show to show a collection
+of study activities with a thumbnail and its name, to either launch or view the study activity.
 
 #### Components
+
 - Study Activity Card
-    - Show a thumbnail of the study activity
-    - Show the name of the study activity
-    - Show the description of the study activity
-    - Launch button
-    - The view page to view more information about pas study sessions for this study activity
+    - show a thumbnail of the study activity
+    - the name of the study activity
+    - a launch button to take us to the launch page
+    - the view page to view more information about past study sessions for this study activity
 
-#### Needed API endpoints
-- GET /study_activities
+#### Needed API Endpoints
 
-## Study Activity Show `/study_activities/:id`
+- GET /api/study_activities
+
+### Study Activity Show `/study_activities/:id`
 
 #### Purpose
-This page is used to show a detailed view of a specific study activity and its past study sessions.
+The purpose of this page is to show the details of a study activity and its past study sessions.
 
 #### Components
-- Show the name of the study activity
-- Show the description of the study activity
-- Show the thumbnail of the study activity
+- Name of study activity
+- Thumbnail of study activity
+- Description of study activity
 - Launch button
 - Study Activities Paginated List
     - id
@@ -71,16 +66,16 @@ This page is used to show a detailed view of a specific study activity and its p
     - group name
     - start time
     - end time (inferred by the last word_review_item submitted)
-    - number of review items
+    - number of review items 
 
-    #### Needed API endpoints
-    - GET /api/study_activities/:id
-    - GET /api/study_activities/:id/study_sessions
+#### Needed API Endpoints
+- GET /api/study_activities/:id
+- GET /api/study_activities/:id/study_sessions
 
-### Study Activites Launch Page `/study_activities/:id/launch`
+### Study Activities Launch `/study_activities/:id/launch`
 
 #### Purpose
-This page is used to launch a specific study activity.
+The purpose of this page is to launch a study activity.
 
 #### Components
 - Name of study activity
@@ -88,149 +83,137 @@ This page is used to launch a specific study activity.
     - select field for group
     - launch now button
 
-#### Behavior
+## Behaviour
 After the form is submitted a new tab opens with the study activity based on its URL provided in the database.
-Also after the form is submitted the page will rediret to the study session show page.
 
-#### Needed API endpoints
-- POST /api/study_activities/:id/launch
+Also the after form is submitted the page will redirect to the study sesssion show page
 
+#### Needed API Endpoints
+- POST /api/study_activities
 
-### Words `/words`
+### Words Index `/words`
 
 #### Purpose
-The purpose of this page is to show all words in the database.
+The purpose of this page is to show all words in our database.
 
 #### Components
 - Paginated Word List
-    - Columns:
-        - Chinese character
-        - Pinyin
-        - English definition
+    - Columns
+        - Japanese
+        - Romaji
+        - English
         - Correct Count
-        - Incorrect Count
+        - Wrong Count
     - Pagination with 100 items per page
-    - Clicking the Chinese character will take us to the word show page
+    - Clicking the Japanese word will take us to the word show page
 
-#### Needed API endpoints
+#### Needed API Endpoints
 - GET /api/words
 
 ### Word Show `/words/:id`
 
 #### Purpose
-This page is used to show information about a specific word.
+The purpose of this page is to show information about a specific word.
 
 #### Components
-- Chinese character
-- Pinyin
-- English definition
+- Japanese
+- Romaji
+- English
 - Study Statistics
     - Correct Count
-    - Incorrect Count
-- Word Groups
-    - show a series of pill tags
+    - Wrong Count
+- Word Groups 
+    - show an a series of pills eg. tags
     - when group name is clicked it will take us to the group show page
 
-#### Needed API endpoints
-- GET /api/words/:id
+#### Needed API Endpoints
+- GET /API/words/:id
 
 ### Word Groups Index `/groups`
 
 #### Purpose
-This page is used to show all word groups in the database.
+The purpose of this page is to show a list of groups in our database.
 
 #### Components
-- Paginated Word Group List
-    - Columns:
+- Paginated Group List
+    - Columns
         - Group Name
-        - Description
         - Word Count
-    - Pagination with 100 items per page
-    - Clicking the Group Name will take us to the group show page
+    - Clicking the group name will take us to the group show page
 
-#### Needed API endpoints
+#### Needed API Endpoints
 - GET /api/groups
 
-### Word Group Show `/groups/:id`
+
+### Group Show `/groups/:id`
 
 #### Purpose
-This page is used to show information about a specific word group.
+The purpose of this page is to show information about a specific group.
 
 #### Components
 - Group Name
-- Group Statistics
-    - Word Count
-- Words in Group (Paginated list of words)
+- Group Statistics 
+    - Total Word Count
+- Words in Group (Paginateds List of Words)
     - Should use the same component as the words index page
-- Study Sessions (Paginated list of study sessions)
+- Study Sessions (Paginated List of Study Sessions)
     - Should use the same component as the study sessions index page
 
-#### Needed API endpoints
+#### Needed API Endpoints
 - GET /api/groups/:id (the name and groups stats)
 - GET /api/groups/:id/words
 - GET /api/groups/:id/study_sessions
 
-
-### Study Sessions `/study_sessions`
+## Study Sessions Index `/study_sessions`
 
 #### Purpose
-This page is used to show all study sessions in the database.
+The purpose of this page is to show a list of study sessions in our database.
 
 #### Components
 - Paginated Study Session List
-    - Columns:
-        - id
-        - activity name
-        - group name
-        - start time
-        - end time
-        - number of review items
+    - Columns
+        - Id
+        - Activity Name
+        - Group Name
+        - Start Time
+        - End Time
+        - Number of Review Items
     - Clicking the study session id will take us to the study session show page
 
-#### Needed API endpoints
+#### Needed API Endpoints
 - GET /api/study_sessions
-
 
 ### Study Session Show `/study_sessions/:id`
 
 #### Purpose
-This page is used to show information about a specific study session.
+The purpose of this page is to show information about a specific study session.
 
 #### Components
-- Study Session Details
-    - activity name
-    - group name
-    - start time
-    - end time
-    - number of review items
-- Word Review Items (Paginated list of review items)
+- Study Sesssion Details
+    - Activity Name
+    - Group Name
+    - Start Time
+    - End Time
+    - Number of Review Items
+- Words Review Items (Paginated List of Words)
     - Should use the same component as the words index page
 
-#### Needed API endpoints
+#### Needed API Endpoints
 - GET /api/study_sessions/:id
 - GET /api/study_sessions/:id/words
 
-### Settings `/settings`
+### Settings Page `/settings`
 
 #### Purpose
-This page is used to make configurations to the study portal.
+The purpose of this page is to make configurations to the study portal.
 
 #### Components
 - Theme Selection eg. Light, Dark, System Default
 - Reset History Button
-    - This will delete ll study sessions and word review items
+   - this will delete all study sessions and word review items
 - Full Reset Button
-    - This will drop all tables and re-create them from scratch
+   - this will drop all tables and re-create with seed data
 
-#### Needed API endpoints
-- POST /api/settings/theme
-- POST /api/settings/reset_history
-- POST /api/settings/full_reset
-
-
-
-
-
-
-
-
+#### Needed API Endpoints
+- POST /api/reset_history
+- POST /api/full_reset
